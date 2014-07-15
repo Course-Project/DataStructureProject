@@ -11,12 +11,16 @@
 
 #include <iostream>
 
-class Cli {
-private:
-    void process(std::string command);
+namespace NO_10 {
+    class Cli {
+    private:
+        void process(std::string command);
+        
+    public:
+        void start();
+    };
+}
 
-public:
-    void start();
-};
+
 
 #endif /* defined(__DataStructure__Cli__) */
