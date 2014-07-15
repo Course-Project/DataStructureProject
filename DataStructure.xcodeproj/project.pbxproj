@@ -56,6 +56,13 @@
 			name = No.10;
 			sourceTree = "<group>";
 		};
+		2092A7131974C555004A867F /* No.8 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = No.8;
+			sourceTree = "<group>";
+		};
 		20DBC52019736CCF00AF9F5C = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +82,7 @@
 		20DBC52B19736CCF00AF9F5C /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				2092A7131974C555004A867F /* No.8 */,
 				2092A712197416F9004A867F /* No.10 */,
 				2081AE291973B7FC00D464F7 /* Cli.cpp */,
 				2081AE2A1973B7FC00D464F7 /* Cli.h */,

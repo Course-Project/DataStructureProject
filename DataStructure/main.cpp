@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 #include <ctime>
 #include "Cli.h"
 #include "Sort.h"
@@ -44,13 +43,123 @@ int main(int argc, const char * argv[])
     
     vector<int> t = generateRandomNumber(con);
     
-    print(t);
+    /**
+     *  Bubble Sort
+     */
+    cout << "Bubble Sort" << endl;
+    
+    vector<int> *px = new vector<int>(t);
     
     begin = clock();
-    heapSort(t);
+    bubbleSort(*px);
     end = clock();
     
-    print(t);
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Selection Sort
+     */
+    cout << "Selection Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    selectionSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Insertion Sort
+     */
+    cout << "Insertion Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    insertionSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Shell Sort
+     */
+    cout << "Shell Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    shellSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Quick Sort
+     */
+    cout << "Quick Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    quickSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Heap Sort
+     */
+    cout << "Heap Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    heapSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Merge Sort
+     */
+    cout << "Merge Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    mergeSort(*px);
+    end = clock();
+    
+    delete px;
+    
+    cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
+    
+    /**
+     *  Radix Sort
+     */
+    cout << "Radix Sort" << endl;
+    
+    px = new vector<int>(t);
+    
+    begin = clock();
+    radixSort(*px);
+    end = clock();
+    
+    delete px;
     
     cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << endl;
     

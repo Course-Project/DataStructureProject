@@ -9,6 +9,8 @@
 #include "Sort.h"
 #include <cstddef>
 
+#define BASE 10
+
 #pragma mark Utils
 inline void swap(int &a, int &b) {
     int t = a;
@@ -62,6 +64,41 @@ void adjustMaxHeap(std::vector<int> &t, int p, size_t size) {
 void buildMaxHeap(std::vector<int> &t) {
     for (int i = (t.size() - 2) / 2.0f; i >= 0; i--) {
         adjustMaxHeap(t, i, t.size());
+    }
+}
+
+void merge(std::vector<int> &t, size_t first, size_t mid, size_t last) {
+    int *p = (int *)malloc(sizeof(int) * (last - first + 1));
+    size_t i = first, j = mid + 1, k = 0;
+    while ((i <= mid) && (j <= last)) {
+        if (t[i] < t[j]) {
+            p[k++] = t[i++];
+        } else {
+            p[k++] = t[j++];
+        }
+    }
+    while (i <= mid) {
+        p[k++] = t[i++];
+    }
+    while (j <= last) {
+        p[k++] = t[j++];
+    }
+    for (i = first, k = 0; i <= last; i++) {
+        t[i] = p[k++];
+    }
+    
+}
+
+void merge_sort(std::vector<int> &t, size_t first, size_t last) {
+    if (first < last) {
+        size_t mid = (first + last) / 2;
+        if (mid - first >= 1) {
+            merge_sort(t, first, mid);
+        }
+        if (last - mid > 1) {
+            merge_sort(t, mid + 1, last);
+        }
+        merge(t, first, mid, last);
     }
 }
 
@@ -138,9 +175,39 @@ void heapSort(std::vector<int> &t) {
 }
 
 void mergeSort(std::vector<int> &t) {
-    
+    merge_sort(t, 0, t.size() - 1);
 }
 
 void radixSort(std::vector<int> &t) {
+    int *temp = (int *)malloc(sizeof(int) * t.size());
     
+    int max = t[0], i;
+    for (i = 1; i < t.size(); i++) {
+        max = max < t[i] ? t[i] : max;
+    }
+    
+    int exp = 1;
+    
+    while (max / exp > 0) {
+        int bucket[BASE] = {0};
+        
+        for (i = 0; i < t.size(); i++) {
+            bucket[(t[i] / exp) % BASE]++;
+        }
+        
+        for (i = 1; i < BASE; i++) {
+            bucket[i] += bucket[i - 1];
+        }
+        
+        size_t size = t.size() - 1;
+        for (i = 0; i <= size; i++) {
+            temp[--bucket[(t[size - i] / exp) % BASE]] = t[size - i];
+        }
+        
+        for (i = 0; i < t.size(); i++) {
+            t[i] = temp[i];
+        }
+        
+        exp *= BASE;
+    }
 }
