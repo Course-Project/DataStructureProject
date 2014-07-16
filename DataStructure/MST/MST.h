@@ -10,40 +10,74 @@
 #define __DataStructure__MST__
 
 #include <iostream>
-#include <vector>
 #include <map>
 #include <string>
+#include <set>
 
+using namespace std;
+
+/**
+ *  结构体Edge
+ *  记录边的信息
+ */
 struct Edge {
-    std::string l, r;
+    string l, r;
     size_t length;
 };
-typedef struct Edge Edge;
 
+
+/**
+ *  MST，最小生成树
+ */
 class MST {
 private:
-    std::vector<Edge> edges;
-    std::map<std::string, size_t> vertexMap;
+    set<Edge>           edges;              // 边集
+    set<string>         vertexs;            // 点集
     
-    std::vector<Edge> result;
+    string              startVertex;        // 仅针对Prim算法
+    map<string, size_t> vertexMap;          // 仅针对Prim算法
+    size_t              totalLength;        // 最小生成树总长度
     
-    size_t startVertex;
-    size_t ans;
+    size_t **graph;
+    void initGraph();
     
-    size_t *lowcost, *closest;
-    size_t **cost;
+    bool containsVertex(const Edge &e, const size_t &v);
     
-    void addResultEdge(const size_t &l, const size_t &r);
-    
-    bool containsVertex(const Edge &edge, const size_t &n);
+    set<Edge>           resultEdges;        // MST结果边集
+    void addResultEdge(const Edge &e);
+    void addResultEdge(const size_t &vertexIndex1, const size_t &vertexIndex2);
     
 public:
-    void addVertex(std::string &c);
-    void addEdge(const std::string &l, const std::string &r, const size_t &length);
-    void setStartVertex(std::string &n);
+    /**
+     *  为图添加边
+     *
+     *  @param v 需要添加的点
+     */
+    void addVertex(const string &v);
+    
+    /**
+     *  为图添加边
+     *
+     *  @param v1     边的一个点
+     *  @param v2     边的另一个点
+     *  @param length 边的长度
+     */
+    void addEdge(const Edge &edge);
+    
+    /**
+     *  为Prim算法设置起始点
+     *
+     *  @param v Prim算法的起始点
+     */
+    void setStartVertex(const string &v);
+    
+    /**
+     *  输出结果
+     */
     void printResult();
     
     void prim();
+    void kruskal();
 };
 
 #endif /* defined(__DataStructure__MST__) */

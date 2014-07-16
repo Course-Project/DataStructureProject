@@ -10,7 +10,7 @@
 #include <vector>
 #include <ctime>
 
-#define __NO_2__
+#define __NO_8__
 
 #if defined __NO_10__
     #include "Sort/Cli.h"
@@ -27,8 +27,7 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    Cli cli;
-    cli.start();
+    new Cli();
     
-    return 0;
+    return EXIT_SUCCESS;
 }

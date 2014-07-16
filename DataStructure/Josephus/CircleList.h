@@ -11,7 +11,6 @@
 
 #include <iostream>
 
-typedef struct Node Node;
 struct Node {
     size_t index;
     Node *next;
