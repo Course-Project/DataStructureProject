@@ -17,5 +17,5 @@ void Cli::start() {
     size_t n;
     std::cin >> n;
     
-    
+    this->circleList = new CircleList(n);
 }

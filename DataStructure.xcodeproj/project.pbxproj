@@ -14,7 +14,7 @@
 		20DBC52D19736CCF00AF9F5C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20DBC52C19736CCF00AF9F5C /* main.cpp */; };
 		20DBC52F19736CCF00AF9F5C /* DataStructure.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20DBC52E19736CCF00AF9F5C /* DataStructure.1 */; };
 		20FD4B7C19762ACE009236BA /* Cli.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20FD4B7A19762ACE009236BA /* Cli.cpp */; };
-		20FD4B7F19762E65009236BA /* Josephus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20FD4B7D19762E65009236BA /* Josephus.cpp */; };
+		20FD4B8219762F40009236BA /* CircleList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20FD4B8019762F40009236BA /* CircleList.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +44,8 @@
 		20DBC52E19736CCF00AF9F5C /* DataStructure.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = DataStructure.1; sourceTree = "<group>"; };
 		20FD4B7A19762ACE009236BA /* Cli.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cli.cpp; path = Josephus/Cli.cpp; sourceTree = "<group>"; };
 		20FD4B7B19762ACE009236BA /* Cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cli.h; path = Josephus/Cli.h; sourceTree = "<group>"; };
-		20FD4B7D19762E65009236BA /* Josephus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Josephus.cpp; sourceTree = "<group>"; };
-		20FD4B7E19762E65009236BA /* Josephus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Josephus.h; sourceTree = "<group>"; };
+		20FD4B8019762F40009236BA /* CircleList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CircleList.cpp; sourceTree = "<group>"; };
+		20FD4B8119762F40009236BA /* CircleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleList.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +114,8 @@
 			children = (
 				20FD4B7A19762ACE009236BA /* Cli.cpp */,
 				20FD4B7B19762ACE009236BA /* Cli.h */,
-				20FD4B7D19762E65009236BA /* Josephus.cpp */,
-				20FD4B7E19762E65009236BA /* Josephus.h */,
+				20FD4B8019762F40009236BA /* CircleList.cpp */,
+				20FD4B8119762F40009236BA /* CircleList.h */,
 			);
 			name = No.2;
 			sourceTree = "<group>";
@@ -173,9 +173,9 @@
 			files = (
 				20FD4B7C19762ACE009236BA /* Cli.cpp in Sources */,
 				2092A7251974CF08004A867F /* Cli.cpp in Sources */,
-				20FD4B7F19762E65009236BA /* Josephus.cpp in Sources */,
 				2092A7211974CAD9004A867F /* MST.cpp in Sources */,
 				2092A71C1974CAB6004A867F /* Sort.cpp in Sources */,
+				20FD4B8219762F40009236BA /* CircleList.cpp in Sources */,
 				2092A71B1974CAB6004A867F /* Cli.cpp in Sources */,
 				20DBC52D19736CCF00AF9F5C /* main.cpp in Sources */,
 			);
