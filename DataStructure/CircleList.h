@@ -11,12 +11,29 @@
 
 #include <iostream>
 
+typedef struct Node Node;
+struct Node {
+    size_t index;
+    Node *next;
+    
+    Node(size_t index) {
+        this->index = index;
+    }
+};
+
 class CircleList {
 private:
-    
+    Node *_head;
+    Node *_pre;
+    Node *_current;
+    size_t _size;
     
 public:
     CircleList(size_t size);
+    size_t size();
+    size_t next();
+    size_t deleteCurrent();
+    void print();
 };
 
 #endif /* defined(__DataStructure__CircleList__) */

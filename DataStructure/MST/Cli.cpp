@@ -20,7 +20,7 @@ void Cli::start() {
         std::cout << "> ";
         std::cin >> in;
         
-        this->mst.addNode(in);
+        this->mst.addVertex(in);
     }
     
     std::cout << "Please enter the edge information: " << std::endl;
@@ -38,12 +38,12 @@ void Cli::start() {
     }
     
     std::cout << "Please enter the start node: " << std::endl;
-    std::string startNode;
-    std::cin >> startNode;
+    std::string startVertex;
+    std::cin >> startVertex;
     
-    this->mst.setStartNode(startNode);
+    this->mst.setStartVertex(startVertex);
     
-    this->mst.prime();
+    this->mst.prim();
     
     this->mst.printResult();
 }

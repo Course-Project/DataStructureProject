@@ -23,11 +23,11 @@ typedef struct Edge Edge;
 class MST {
 private:
     std::vector<Edge> edges;
-    std::map<std::string, size_t> nodeMap;
+    std::map<std::string, size_t> vertexMap;
     
     std::vector<Edge> result;
     
-    size_t startNode;
+    size_t startVertex;
     size_t ans;
     
     size_t *lowcost, *closest;
@@ -35,15 +35,15 @@ private:
     
     void addResultEdge(const size_t &l, const size_t &r);
     
-    bool containsNode(const Edge &edge, const size_t &n);
+    bool containsVertex(const Edge &edge, const size_t &n);
     
 public:
-    void addNode(std::string &c);
+    void addVertex(std::string &c);
     void addEdge(const std::string &l, const std::string &r, const size_t &length);
-    void setStartNode(std::string &n);
+    void setStartVertex(std::string &n);
     void printResult();
     
-    void prime();
+    void prim();
 };
 
 #endif /* defined(__DataStructure__MST__) */
