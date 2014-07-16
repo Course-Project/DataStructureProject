@@ -10,9 +10,40 @@
 #define __DataStructure__MST__
 
 #include <iostream>
+#include <vector>
+#include <map>
+#include <string>
 
 struct Edge {
+    std::string l, r;
+    size_t length;
+};
+typedef struct Edge Edge;
+
+class MST {
+private:
+    std::vector<Edge> edges;
+    std::map<std::string, size_t> nodeMap;
     
+    std::vector<Edge> result;
+    
+    size_t startNode;
+    size_t ans;
+    
+    size_t *lowcost, *closest;
+    size_t **cost;
+    
+    void addResultEdge(const size_t &l, const size_t &r);
+    
+    bool containsNode(const Edge &edge, const size_t &n);
+    
+public:
+    void addNode(std::string &c);
+    void addEdge(const std::string &l, const std::string &r, const size_t &length);
+    void setStartNode(std::string &n);
+    void printResult();
+    
+    void prime();
 };
 
 #endif /* defined(__DataStructure__MST__) */

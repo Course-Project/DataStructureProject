@@ -10,14 +10,17 @@
 #include <vector>
 #include <ctime>
 
-#define __NO_10__
+#define __NO_2__
 
 #if defined __NO_10__
-#include "Sort/Cli.h"
-using namespace NO_10;
+    #include "Sort/Cli.h"
+    using namespace NO_10;
 #elif defined __NO_8__
-#include "MST/Cli.h"
-using namespace NO_8;
+    #include "MST/Cli.h"
+    using namespace NO_8;
+#elif defined __NO_2__
+    #include "Josephus/Cli.h"
+    using namespace NO_2;
 #endif
 
 using namespace std;

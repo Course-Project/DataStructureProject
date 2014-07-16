@@ -16,13 +16,13 @@
  *  All results are in ascending order
  */
 
-void bubbleSort(std::vector<int> &t);
-void selectionSort(std::vector<int> &t);
-void insertionSort(std::vector<int> &t);
-void shellSort(std::vector<int> &t);
-void quickSort(std::vector<int> &t);
-void heapSort(std::vector<int> &t);
-void mergeSort(std::vector<int> &t);
-void radixSort(std::vector<int> &t);
+void bubbleSort(std::vector<int> &t, size_t &op);
+void selectionSort(std::vector<int> &t, size_t &op);
+void insertionSort(std::vector<int> &t, size_t &op);
+void shellSort(std::vector<int> &t, size_t &op);
+void quickSort(std::vector<int> &t, size_t &op);
+void heapSort(std::vector<int> &t, size_t &op);
+void mergeSort(std::vector<int> &t, size_t &op);
+void radixSort(std::vector<int> &t, size_t &op);
 
 #endif /* defined(__DataStructure__Sort__) */

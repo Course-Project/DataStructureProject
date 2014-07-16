@@ -18,7 +18,7 @@ inline void swap(int &a, int &b) {
     b = t;
 }
 
-void quick_sort(std::vector<int> &t, size_t l, size_t r) {
+void quick_sort(std::vector<int> &t, size_t l, size_t r, size_t &op) {
     size_t m = (l + r) / 2;
     int key = t[m];
     size_t i = l, j = r;
@@ -26,24 +26,26 @@ void quick_sort(std::vector<int> &t, size_t l, size_t r) {
         while (i < m && t[i] <= key)
             i++;
         if (i < m) {
+            op++;
             t[m] = t[i];
             m = i;
         }
         while (j > m && t[j] >= key)
             j--;
         if (j > m) {
+            op++;
             t[m] = t[j];
             m = j;
         }
     }
     t[m] = key;
     if (m - l > 1)
-        quick_sort(t, l, m - 1);
+        quick_sort(t, l, m - 1,op);
     if (r - m > 1)
-        quick_sort(t, m + 1, r);
+        quick_sort(t, m + 1, r,op);
 }
 
-void adjustMaxHeap(std::vector<int> &t, int p, size_t size) {
+void adjustMaxHeap(std::vector<int> &t, int p, size_t size, size_t &op) {
     int l = 2 * p + 1;
     int r = 2 * p + 2;
     int maxPosition;
@@ -56,21 +58,23 @@ void adjustMaxHeap(std::vector<int> &t, int p, size_t size) {
         maxPosition = r;
     }
     if (maxPosition != p) {
+        op++;
         swap(t[maxPosition], t[p]);
-        adjustMaxHeap(t, maxPosition, size);
+        adjustMaxHeap(t, maxPosition, size, op);
     }
 }
 
-void buildMaxHeap(std::vector<int> &t) {
+void buildMaxHeap(std::vector<int> &t, size_t &op) {
     for (int i = (t.size() - 2) / 2.0f; i >= 0; i--) {
-        adjustMaxHeap(t, i, t.size());
+        adjustMaxHeap(t, i, t.size(), op);
     }
 }
 
-void merge(std::vector<int> &t, size_t first, size_t mid, size_t last) {
+void merge(std::vector<int> &t, size_t first, size_t mid, size_t last, size_t &op) {
     int *p = (int *)malloc(sizeof(int) * (last - first + 1));
     size_t i = first, j = mid + 1, k = 0;
     while ((i <= mid) && (j <= last)) {
+        op++;
         if (t[i] < t[j]) {
             p[k++] = t[i++];
         } else {
@@ -89,37 +93,39 @@ void merge(std::vector<int> &t, size_t first, size_t mid, size_t last) {
     
 }
 
-void merge_sort(std::vector<int> &t, size_t first, size_t last) {
+void merge_sort(std::vector<int> &t, size_t first, size_t last, size_t &op) {
     if (first < last) {
         size_t mid = (first + last) / 2;
         if (mid - first >= 1) {
-            merge_sort(t, first, mid);
+            merge_sort(t, first, mid, op);
         }
         if (last - mid > 1) {
-            merge_sort(t, mid + 1, last);
+            merge_sort(t, mid + 1, last, op);
         }
-        merge(t, first, mid, last);
+        merge(t, first, mid, last, op);
     }
 }
 
 #pragma mark -
 #pragma mark Sort
-void bubbleSort(std::vector<int> &t) {
+void bubbleSort(std::vector<int> &t, size_t &op) {
     for (int i = 0; i < t.size(); i++) {
         for (int j = 0; j < t.size() - i - 1; j++) {
             if (t[j] > t[j + 1]) {
+                op++;
                 swap(t[j], t[j + 1]);
             }
         }
     }
 }
 
-void selectionSort(std::vector<int> &t) {
+void selectionSort(std::vector<int> &t, size_t &op) {
     for (int i = 0; i < t.size(); i++) {
         int min = 0x0fffffff;
         int po = 0;
         for (int j = i; j < t.size(); j++) {
             if (t[j] < min) {
+                op++;
                 min = t[j];
                 po = j;
             }
@@ -128,12 +134,13 @@ void selectionSort(std::vector<int> &t) {
     }
 }
 
-void insertionSort(std::vector<int> &t) {
+void insertionSort(std::vector<int> &t, size_t &op) {
     int temp;
     for (int i = 1; i < t.size(); i++) {
         temp = t[i];
         int j = i - 1;
         while (j >= 0 && t[j] > temp) {
+            op++;
             t[j + 1] = t[j];
             j--;
         }
@@ -141,7 +148,7 @@ void insertionSort(std::vector<int> &t) {
     }
 }
 
-void shellSort(std::vector<int> &t) {
+void shellSort(std::vector<int> &t, size_t &op) {
     int gap = 0;
     while (gap <= t.size()) {
         gap = 3 * gap + 1;
@@ -152,6 +159,7 @@ void shellSort(std::vector<int> &t) {
             temp = t[i];
             int j = i - gap;
             while (j >= 0 && t[j] > temp) {
+                op++;
                 t[j + gap] = t[j];
                 j -= gap;
             }
@@ -161,24 +169,25 @@ void shellSort(std::vector<int> &t) {
     }
 }
 
-void quickSort(std::vector<int> &t) {
-    quick_sort(t, 0, t.size() - 1);
+void quickSort(std::vector<int> &t, size_t &op) {
+    quick_sort(t, 0, t.size() - 1, op);
 }
 
-void heapSort(std::vector<int> &t) {
-    buildMaxHeap(t);
+void heapSort(std::vector<int> &t, size_t &op) {
+    buildMaxHeap(t, op);
     for (int i = 1; i <= t.size(); i++) {
+        op++;
         swap(t[0], t[t.size() - i]);
-        adjustMaxHeap(t, 0, t.size() - i);
+        adjustMaxHeap(t, 0, t.size() - i, op);
     }
     
 }
 
-void mergeSort(std::vector<int> &t) {
-    merge_sort(t, 0, t.size() - 1);
+void mergeSort(std::vector<int> &t, size_t &op) {
+    merge_sort(t, 0, t.size() - 1, op);
 }
 
-void radixSort(std::vector<int> &t) {
+void radixSort(std::vector<int> &t, size_t &op) {
     int *temp = (int *)malloc(sizeof(int) * t.size());
     
     int max = t[0], i;

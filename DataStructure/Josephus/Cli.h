@@ -2,7 +2,7 @@
 //  Cli.h
 //  DataStructure
 //
-//  Created by Tom Hu on 7/15/14.
+//  Created by Tom Hu on 7/16/14.
 //  Copyright (c) 2014 Tom Hu. All rights reserved.
 //
 
@@ -10,12 +10,10 @@
 #define __DataStructure__Cli__
 
 #include <iostream>
-#include "MST.h"
 
-namespace NO_8 {
+namespace NO_2 {
     class Cli {
     private:
-        MST mst;
         
     public:
         void start();

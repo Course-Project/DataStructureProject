@@ -83,14 +83,16 @@ void Cli::start() {
     std::cout << "Bubble Sort" << std::endl;
     
     std::vector<int> *px = new std::vector<int>(t);
+    size_t op = 0;
     
     begin = clock();
-    bubbleSort(*px);
+    bubbleSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Selection Sort
@@ -98,14 +100,16 @@ void Cli::start() {
     std::cout << "Selection Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    selectionSort(*px);
+    selectionSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Insertion Sort
@@ -113,14 +117,16 @@ void Cli::start() {
     std::cout << "Insertion Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    insertionSort(*px);
+    insertionSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Shell Sort
@@ -128,14 +134,16 @@ void Cli::start() {
     std::cout << "Shell Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    shellSort(*px);
+    shellSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Quick Sort
@@ -143,14 +151,16 @@ void Cli::start() {
     std::cout << "Quick Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    quickSort(*px);
+    quickSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Heap Sort
@@ -158,14 +168,16 @@ void Cli::start() {
     std::cout << "Heap Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    heapSort(*px);
+    heapSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Merge Sort
@@ -173,14 +185,16 @@ void Cli::start() {
     std::cout << "Merge Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    mergeSort(*px);
+    mergeSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
     
     /**
      *  Radix Sort
@@ -188,12 +202,14 @@ void Cli::start() {
     std::cout << "Radix Sort" << std::endl;
     
     px = new std::vector<int>(t);
+    op = 0;
     
     begin = clock();
-    radixSort(*px);
+    radixSort(*px, op);
     end = clock();
     
     delete px;
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
+    std::cout << "Operations: " << op << std::endl << std::endl;
 }
