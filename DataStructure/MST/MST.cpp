@@ -7,6 +7,7 @@
 //
 
 #include "MST.h"
+#include <cstdlib>
 
 #pragma mark Utils
 size_t *lowcost;            // lowcost表示对应点到MST的距离

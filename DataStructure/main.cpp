@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <cstdlib>
 
 #define __NO_8__
 
