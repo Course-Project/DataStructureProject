@@ -67,7 +67,7 @@ void Cli::start() {
     clock_t begin, end;
     int con = 0;
     
-    std::cout << "> 输入需要排序的个数：";
+    std::cout << "输入需要排序的个数：";
     std::cin >> con;
     
     std::vector<int> t = generateRandomNumber(con);

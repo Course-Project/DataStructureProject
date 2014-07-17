@@ -11,8 +11,6 @@
 #include <ctime>
 #include <cstdlib>
 
-//#define __NO_8__
-
 #if defined __NO_10__
     #include "Sort/Cli.h"
     using namespace NO_10;
@@ -22,6 +20,10 @@
 #elif defined __NO_2__
     #include "Josephus/Cli.h"
     using namespace NO_2;
+#else
+    // 默认第二题
+    #include "Josephus/Cli.h"
+    using namespace NO_2;
 #endif
 
 using namespace std;
@@ -29,6 +31,10 @@ using namespace std;
 int main(int argc, const char * argv[])
 {
     new Cli();
+    
+#ifdef _WIN32
+    system("pause");
+#endif
     
     return EXIT_SUCCESS;
 }

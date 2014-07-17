@@ -31,7 +31,7 @@ void Cli::start() {
     
     this->circleList = new CircleList(n, p);
     
-    this->circleList->print();
+    cout << endl;
     
     int con = 0;
     while (this->circleList->size() > r) {
@@ -42,6 +42,9 @@ void Cli::start() {
         }
         cout << "第" << ++con << "个死者的位置是：" << this->circleList->deleteCurrent() << endl;
     }
+    
+    cout << endl;
+    cout << "剩余的生者位置为：" << endl;
     
     this->circleList->print();
 }
