@@ -6,26 +6,28 @@
 //  Copyright (c) 2014 Tom Hu. All rights reserved.
 //
 
+#include <iostream>
 #include "Cli.h"
 
 using namespace NO_2;
+using namespace std;
 
 void Cli::start() {
-    std::cout << "请输入生死游戏的总人数：";
+    cout << "请输入生死游戏的总人数：";
     size_t n;
-    std::cin >> n;
+    cin >> n;
     
-    std::cout << "请输入游戏开始的位置：";
+    cout << "请输入游戏开始的位置：";
     size_t p;
-    std::cin >> p;
+    cin >> p;
     
-    std::cout << "请输入死亡数字：";
+    cout << "请输入死亡数字：";
     size_t evilNumber;
-    std::cin >> evilNumber;
+    cin >> evilNumber;
     
-    std::cout << "请输入剩余的生者人数：";
+    cout << "请输入剩余的生者人数：";
     size_t r;
-    std::cin >> r;
+    cin >> r;
     
     this->circleList = new CircleList(n, p);
     
@@ -38,7 +40,7 @@ void Cli::start() {
             this->circleList->next();
             i++;
         }
-        std::cout << "第" << ++con << "个死者的位置是：" << this->circleList->deleteCurrent() << std::endl;
+        cout << "第" << ++con << "个死者的位置是：" << this->circleList->deleteCurrent() << endl;
     }
     
     this->circleList->print();

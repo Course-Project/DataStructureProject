@@ -9,7 +9,6 @@
 #ifndef __DataStructure__Cli__
 #define __DataStructure__Cli__
 
-#include <iostream>
 #include "CircleList.h"
 
 namespace NO_2 {
