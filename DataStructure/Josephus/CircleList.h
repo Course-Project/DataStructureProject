@@ -15,7 +15,7 @@ struct Node {
     size_t index;
     Node *next;
     
-    Node(size_t index) {
+    Node(const size_t &index) {
         this->index = index;
     }
 };
@@ -28,7 +28,7 @@ private:
     size_t _size;
     
 public:
-    CircleList(size_t size);
+    CircleList(const size_t &size, const size_t &start);
     size_t size();
     size_t next();
     size_t deleteCurrent();

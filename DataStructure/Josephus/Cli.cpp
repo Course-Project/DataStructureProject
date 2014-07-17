@@ -11,28 +11,23 @@
 using namespace NO_2;
 
 void Cli::start() {
-    std::cout << "> ";
     std::cout << "请输入生死游戏的总人数：";
-    
     size_t n;
     std::cin >> n;
     
-    this->circleList = new CircleList(n);
-    
     std::cout << "请输入游戏开始的位置：";
-    
     size_t p;
     std::cin >> p;
     
     std::cout << "请输入死亡数字：";
-    
     size_t evilNumber;
     std::cin >> evilNumber;
     
     std::cout << "请输入剩余的生者人数：";
-    
     size_t r;
     std::cin >> r;
+    
+    this->circleList = new CircleList(n, p);
     
     this->circleList->print();
     
@@ -47,4 +42,8 @@ void Cli::start() {
     }
     
     this->circleList->print();
+}
+
+Cli::Cli() {
+    this->start();
 }

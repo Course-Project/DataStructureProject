@@ -17,8 +17,10 @@ namespace NO_2 {
     private:
         CircleList *circleList;
         
-    public:
         void start();
+        
+    public:
+        Cli();
     };
 }
 

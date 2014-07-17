@@ -8,7 +8,7 @@
 
 #include "CircleList.h"
 
-CircleList::CircleList(size_t size) {
+CircleList::CircleList(const size_t &size, const size_t &start) {
     this->_size = size;
     this->_head = new Node(0);
     this->_current = this->_head;
@@ -18,6 +18,10 @@ CircleList::CircleList(size_t size) {
         this->_pre = this->_pre->next;
     }
     this->_pre->next = this->_head;
+    
+    for (int i = 0; i < start - 1; i++) {
+        this->next();
+    }
 }
 
 size_t CircleList::size() {

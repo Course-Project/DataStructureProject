@@ -47,7 +47,6 @@ void Cli::printWelcomeMessage() {
     cout << "              D --- 显示结果" << endl;
     cout << "              E --- 退出" << endl;
     cout << "=============================================" << endl;
-    cout << endl;
 }
 
 /**
@@ -55,6 +54,7 @@ void Cli::printWelcomeMessage() {
  *  获取用户输入，执行不同的模块
  */
 void Cli::start() {
+    cout << endl;
     string command = getInputWithMessages("请选择步骤：");
     
     if (command == "A") {
@@ -137,8 +137,7 @@ void Cli::inputEdges() {
  */
 void Cli::run() {
     while (true) {
-        printMessages("输入相应数字选择算法：1. Prim, 2. Kruskal");
-        string which = getInputWithMessages("请选择算法：");
+        string which = getInputWithMessages("输入相应数字选择算法(1. Prim, 2. Kruskal)：");
         if (which == "1") {
             this->inputStartVertex();
             break;
