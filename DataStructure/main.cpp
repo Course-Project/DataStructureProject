@@ -11,7 +11,7 @@
 #include <ctime>
 #include <cstdlib>
 
-#define __NO_8__
+//#define __NO_8__
 
 #if defined __NO_10__
     #include "Sort/Cli.h"
