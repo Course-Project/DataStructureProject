@@ -21,6 +21,7 @@ string getInputWithMessages(const string &messages) {
     
     cout << "{" << buf << "}root$ " << messages;
     cin >> input;
+    
     return input;
 }
 
@@ -30,7 +31,7 @@ void printMessages(const string &messages) {
     time_t nowtime = time(NULL);
     strftime(buf, 80, "%Y-%m-%d %H:%M:%S", localtime(&nowtime));
     
-    cout << "{" << buf << "}root$ " << messages << endl;;
+    cout << "{" << buf << "}root$ " << messages;
 }
 
 /**
@@ -77,14 +78,57 @@ void Cli::start() {
  *  输入点
  */
 void Cli::inputVertexs() {
-    
+    printMessages("请输入顶点名称，一行一个，输入0结束输入");
+    cout << endl;
+    while (true) {
+        string vertexName = getInputWithMessages("顶点名称：");
+        if (vertexName == "0") {
+            break;
+        }
+        this->mst.addVertex(vertexName);
+    }
 }
 
 /**
  *  输入边
  */
 void Cli::inputEdges() {
-    
+    printMessages("请输入边的信息，包括两个端点名称以及边的长度(正整数)，例a b 8，每行一条边，输入0 0 0结束输入");
+    cout << endl;
+    while (true) {
+        string vertex1, vertex2;
+        size_t length;
+        printMessages("边信息：");
+        cin >> vertex1 >> vertex2 >> length;
+        
+        // 清空输入缓冲区，避免错误输入停留
+        cin.clear();
+        cin.sync();
+        
+        // 判断是否结束
+        if (vertex1 == "0" && vertex2 == "0" && length == 0) {
+            break;
+        }
+        
+        // 检测是否存在该点
+        if (!(this->mst.hasVertex(vertex1) && this->mst.hasVertex(vertex2))) {
+            // 至少有一个点不存在
+            printMessages("所输入的点不存在，请重新输入");
+            cout << endl;
+            continue;
+        }
+        
+        // 判断长度是否正确
+        if (length == 0) {
+            // 输入了负数或是0
+            printMessages("长度必须是正整数，请重新输入");
+            cout << endl;
+            continue;
+        }
+        
+        // 添加边
+        this->mst.addEdge((Edge){vertex1, vertex2, length});
+    }
 }
 
 /**
@@ -96,12 +140,37 @@ void Cli::run() {
         printMessages("输入相应数字选择算法：1. Prim, 2. Kruskal");
         string which = getInputWithMessages("请选择算法：");
         if (which == "1") {
-            this->mst.prim();
+            this->inputStartVertex();
             break;
         } else if (which == "2") {
             this->mst.kruskal();
             break;
         }
+    }
+}
+
+/**
+ *  为Prim算法设置起始点
+ */
+void Cli::inputStartVertex() {
+    while (true) {
+        string startVertex = getInputWithMessages("请输入Prim算法起始点名称：");
+        
+        // 检测是否存在该点
+        if (!(this->mst.hasVertex(startVertex))) {
+            // 至少有一个点不存在
+            printMessages("所输入的点不存在，请重新输入");
+            cout << endl;
+            continue;
+        }
+        
+        // 设置起始点
+        this->mst.setStartVertex(startVertex);
+        
+        // Prim
+        this->mst.prim();
+        
+        break;
     }
 }
 

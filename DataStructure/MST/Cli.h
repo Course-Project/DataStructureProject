@@ -49,6 +49,11 @@ namespace NO_8 {
         void run();
         
         /**
+         *  为Prim算法设置起始点
+         */
+        void inputStartVertex();
+        
+        /**
          *  显示最小生成树
          */
         void printResult();

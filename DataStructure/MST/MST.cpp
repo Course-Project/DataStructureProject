@@ -93,7 +93,21 @@ void MST::setStartVertex(const string &v) {
  *  输出结果
  */
 void MST::printResult() {
-    
+    set<Edge>::iterator itr = this->resultEdges.begin();
+    for (; itr != this->resultEdges.end(); itr++) {
+        cout << itr->l << " --(" << itr->length << ")-- " << itr->r << endl;
+    }
+}
+
+/**
+ *  判断是否存在某点
+ *
+ *  @param v 顶点名称
+ *
+ *  @return 存在则返回true，否则返回false
+ */
+bool MST::hasVertex(const string &v) {
+    return this->vertexs.find(v) != this->vertexs.end();
 }
 
 #pragma mark - Solve

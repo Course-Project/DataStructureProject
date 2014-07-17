@@ -76,6 +76,15 @@ public:
      */
     void printResult();
     
+    /**
+     *  判断是否存在某点
+     *
+     *  @param v 顶点名称
+     *
+     *  @return 存在则返回true，否则返回false
+     */
+    bool hasVertex(const string &v);
+    
     void prim();
     void kruskal();
 };
