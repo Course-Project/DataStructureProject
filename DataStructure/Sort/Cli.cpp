@@ -45,13 +45,6 @@ void print(const std::vector<int> &t) {
 #pragma mark Cli
 
 /**
- * Process the command line input
- */
-void Cli::process(std::string command) {
-    
-}
-
-/**
  *  Command line interface
  */
 void Cli::start() {
@@ -212,4 +205,8 @@ void Cli::start() {
     
     std::cout << "Time: " << std::fixed << (double)(end - begin) / CLOCKS_PER_SEC << "s" << std::endl;
     std::cout << "Operations: " << op << std::endl << std::endl;
+}
+
+Cli::Cli() {
+    this->start();
 }

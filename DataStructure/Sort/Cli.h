@@ -14,10 +14,10 @@
 namespace NO_10 {
     class Cli {
     private:
-        void process(std::string command);
+        void start();
         
     public:
-        void start();
+        Cli();
     };
 }
 
