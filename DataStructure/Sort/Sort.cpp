@@ -8,6 +8,7 @@
 
 #include "Sort.h"
 #include <cstddef>
+#include <cstdlib>
 
 #define BASE 10
 

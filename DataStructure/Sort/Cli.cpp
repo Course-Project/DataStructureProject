@@ -9,6 +9,8 @@
 #include "Cli.h"
 #include "Sort.h"
 #include <vector>
+#include <ctime>
+#include <cstdlib>
 
 using namespace NO_10;
 
