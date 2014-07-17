@@ -93,7 +93,7 @@ void MST::setStartVertex(const string &v) {
 /**
  *  输出结果
  */
-void MST::printResult() {
+void MST::printResult() const {
     set<Edge>::iterator itr = this->resultEdges.begin();
     for (; itr != this->resultEdges.end(); itr++) {
         cout << itr->l << " --(" << itr->length << ")-- " << itr->r << endl;
@@ -107,8 +107,40 @@ void MST::printResult() {
  *
  *  @return 存在则返回true，否则返回false
  */
-bool MST::hasVertex(const string &v) {
+bool MST::hasVertex(const string &v) const {
     return this->vertexs.find(v) != this->vertexs.end();
+}
+
+/**
+ *  清空点集
+ */
+void MST::clearVertexSet() {
+    this->vertexs.clear();
+}
+
+/**
+ *  清空边集
+ */
+void MST::clearEdgeSet() {
+    this->edges.clear();
+}
+
+/**
+ *  判断点集是否为空
+ *
+ *  @return 空则返回true，否则返回false
+ */
+bool MST::isVertexSetEmpty() const {
+    return this->vertexs.empty();
+}
+
+/**
+ *  判断边集是否为空
+ *
+ *  @return 空则返回true，否则返回false
+ */
+bool MST::isEdgeSetEmpty() const {
+    return this->edges.empty();
 }
 
 #pragma mark - Solve

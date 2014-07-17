@@ -74,7 +74,7 @@ public:
     /**
      *  输出结果
      */
-    void printResult();
+    void printResult() const;
     
     /**
      *  判断是否存在某点
@@ -83,7 +83,31 @@ public:
      *
      *  @return 存在则返回true，否则返回false
      */
-    bool hasVertex(const string &v);
+    bool hasVertex(const string &v) const;
+    
+    /**
+     *  清空点集
+     */
+    void clearVertexSet();
+    
+    /**
+     *  清空边集
+     */
+    void clearEdgeSet();
+    
+    /**
+     *  判断点集是否为空
+     *
+     *  @return 空则返回true，否则返回false
+     */
+    bool isVertexSetEmpty() const;
+    
+    /**
+     *  判断边集是否为空
+     *
+     *  @return 空则返回true，否则返回false
+     */
+    bool isEdgeSetEmpty() const;
     
     void prim();
     void kruskal();

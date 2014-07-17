@@ -53,11 +53,6 @@ namespace NO_8 {
          */
         void inputStartVertex();
         
-        /**
-         *  显示最小生成树
-         */
-        void printResult();
-        
     public:
         /**
          *  构造函数

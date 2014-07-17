@@ -44,8 +44,7 @@ void Cli::printWelcomeMessage() {
     cout << "              A --- 创建电网顶点" << endl;
     cout << "              B --- 添加电网的边" << endl;
     cout << "              C --- 构造最小生成树" << endl;
-    cout << "              D --- 显示结果" << endl;
-    cout << "              E --- 退出" << endl;
+    cout << "              D --- 退出" << endl;
     cout << "=============================================" << endl;
 }
 
@@ -67,9 +66,7 @@ void Cli::start() {
         // 选择算法并执行
         this->run();
     } else if (command == "D") {
-        // 显示结果
-        this->printResult();
-    } else if (command == "E") {
+        // 退出程序
         this->isRunning = false;
     }
 }
@@ -80,6 +77,11 @@ void Cli::start() {
 void Cli::inputVertexs() {
     printMessages("请输入顶点名称，一行一个，输入0结束输入");
     cout << endl;
+    
+    // 清空已有点集和边集
+    this->mst.clearVertexSet();
+    this->mst.clearEdgeSet();
+    
     while (true) {
         string vertexName = getInputWithMessages("顶点名称：");
         if (vertexName == "0") {
@@ -93,8 +95,20 @@ void Cli::inputVertexs() {
  *  输入边
  */
 void Cli::inputEdges() {
+    // 判断点集是否为空
+    if (this->mst.isVertexSetEmpty()) {
+        printMessages("顶点信息为空，请先输入顶点信息");
+        cout << endl;
+        
+        return;
+    }
+    
     printMessages("请输入边的信息，包括两个端点名称以及边的长度(正整数)，例a b 8，每行一条边，输入0 0 0结束输入");
     cout << endl;
+    
+    // 清空已有边集
+    this->mst.clearEdgeSet();
+    
     while (true) {
         string vertex1, vertex2;
         size_t length;
@@ -136,13 +150,35 @@ void Cli::inputEdges() {
  *  并运行
  */
 void Cli::run() {
+    // 判断点集或边集是否为空
+    bool vertexSetEmpty = this->mst.isVertexSetEmpty();
+    bool edgeSetEmpty = this->mst.isEdgeSetEmpty();
+    if (vertexSetEmpty && edgeSetEmpty) {
+        printMessages("顶点和边的信息均为空，请先输入顶点和边的信息");
+        cout << endl;
+        
+        return;
+    } else if (vertexSetEmpty && !edgeSetEmpty) {
+        printMessages("边信息为空，请先输入边信息");
+        cout << endl;
+        
+        return;
+    } else if (!vertexSetEmpty && edgeSetEmpty) {
+        printMessages("边信息为空，请先输入边信息");
+        cout << endl;
+        
+        return;
+    }
+    
     while (true) {
         string which = getInputWithMessages("输入相应数字选择算法(1. Prim, 2. Kruskal)：");
         if (which == "1") {
             this->inputStartVertex();
+            this->mst.printResult();
             break;
         } else if (which == "2") {
             this->mst.kruskal();
+            this->mst.printResult();
             break;
         }
     }
@@ -172,14 +208,6 @@ void Cli::inputStartVertex() {
         break;
     }
 }
-
-/**
- *  显示最小生成树
- */
-void Cli::printResult() {
-    this->mst.printResult();
-}
-
 /**
  *  构造函数
  */
