@@ -16,6 +16,9 @@ default :
 	make No.2.exe
 	make No.8.exe
 	make No.10.exe
+    make No.2
+	make No.8
+	make No.10
 
 win :
 	make No.2.exe

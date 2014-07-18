@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20724E521978B1150076B46A /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 20724E511978B1150076B46A /* Makefile */; };
 		2092A71B1974CAB6004A867F /* Cli.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2092A7171974CAB6004A867F /* Cli.cpp */; };
 		2092A71C1974CAB6004A867F /* Sort.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2092A7191974CAB6004A867F /* Sort.cpp */; };
 		2092A7211974CAD9004A867F /* MST.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2092A71F1974CAD9004A867F /* MST.cpp */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		20724E511978B1150076B46A /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		2092A7171974CAB6004A867F /* Cli.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Cli.cpp; path = Sort/Cli.cpp; sourceTree = "<group>"; };
 		2092A7181974CAB6004A867F /* Cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cli.h; path = Sort/Cli.h; sourceTree = "<group>"; };
 		2092A7191974CAB6004A867F /* Sort.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sort.cpp; path = Sort/Sort.cpp; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		20DBC52B19736CCF00AF9F5C /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
+				20724E511978B1150076B46A /* Makefile */,
 				20FD4B79197629CB009236BA /* No.2 */,
 				2092A71E1974CACE004A867F /* No.8 */,
 				2092A71D1974CABB004A867F /* No.10 */,
@@ -177,6 +180,7 @@
 				2092A71C1974CAB6004A867F /* Sort.cpp in Sources */,
 				20FD4B8519767FF4009236BA /* CircleList.cpp in Sources */,
 				2092A71B1974CAB6004A867F /* Cli.cpp in Sources */,
+				20724E521978B1150076B46A /* Makefile in Sources */,
 				20DBC52D19736CCF00AF9F5C /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
