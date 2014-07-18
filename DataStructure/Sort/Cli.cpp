@@ -12,6 +12,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
+#include <cstddef>
 
 using namespace NO_10;
 using namespace std;
