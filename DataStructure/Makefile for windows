@@ -1,0 +1,26 @@
+NO2PATH = .\Josephus
+NO8PATH = .\MST
+NO10PATH = .\Sort
+
+NO2FILES = main.cpp $(NO2PATH)\Cli.cpp $(NO2PATH)\CircleList.cpp
+NO8FILES = main.cpp $(NO8PATH)\Cli.cpp $(NO8PATH)\MST.cpp
+NO10FILES = main.cpp $(NO10PATH)\Cli.cpp $(NO10PATH)\Sort.cpp
+
+COMPILER = cl.exe
+
+all : No.2.exe No.8.exe No.10.exe clean_obj
+
+No.2.exe :
+	$(COMPILER) $(NO2FILES) /EHsc /D__NO_2__ /oNo.2.exe
+
+No.8.exe :
+	$(COMPILER) $(NO8FILES) /EHsc /D__NO_8__ /oNo.8.exe
+
+No.10.exe :
+	$(COMPILER) $(NO10FILES) /EHsc /D__NO_10__ /oNo.10.exe
+
+clean_obj :
+	del *.obj
+
+clean :
+	del *.exe

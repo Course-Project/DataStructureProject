@@ -11,14 +11,13 @@ win-char-encoding = -finput-charset=UTF-8 -fexec-charset=gbk
 WINCOMPILER       = /usr/local/i386-mingw32-4.3.0/bin/i386-mingw32-g++
 COMPILER          = g++
 
-
 default :
-	make No.2.exe
-	make No.8.exe
-	make No.10.exe
 	make No.2
 	make No.8
 	make No.10
+	make No.2.exe
+	make No.8.exe
+	make No.10.exe
 
 win :
 	make No.2.exe
@@ -31,7 +30,7 @@ mac :
 	make No.10
 
 clean :
-	rm No.2.exe No.8.exe No.10.exe No.2 No.8 No.10
+	rm No.2 No.8 No.10 No.2.exe No.8.exe No.10.exe
 
 No.2.exe : $(NO2FILES)
 	$(WINCOMPILER) $(NO2FILES) $(win-char-encoding) -D__NO_2__ -o No.2.exe
