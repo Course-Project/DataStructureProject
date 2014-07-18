@@ -9,12 +9,14 @@
 #ifndef __DataStructure__Cli__
 #define __DataStructure__Cli__
 
-#include <iostream>
+#include <vector>
 
 namespace NO_10 {
     class Cli {
     private:
-        void start();
+        bool isRunning;
+        
+        void start(const std::vector<int> &t);
         
     public:
         Cli();
