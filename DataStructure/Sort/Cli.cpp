@@ -12,7 +12,6 @@
 #include <vector>
 #include <ctime>
 #include <cstdlib>
-#include <cstddef>
 
 using namespace NO_10;
 using namespace std;
@@ -63,7 +62,7 @@ void print(const vector<int> &t) {
  */
 void Cli::start(const vector<int> &t) {
     clock_t begin, end;
-    vector<int> *px = nullptr;
+    vector<int> *px;
     size_t op = 0;
     
     size_t in;
